@@ -1,0 +1,90 @@
+body {
+  inline-size: 100vw;
+  block-size: 100vh;
+}
+
+.btn {
+  box-sizing: border-box;
+  inline-size: 130px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  background-color: #fff;
+  color: #333;
+  display: block;
+  cursor: pointer;
+  transition: .4s;
+
+  &:hover {
+    background-color: #333;
+    color: #fff;
+  }
+
+  &.btn--mint {
+    color: #64C5CC;
+    border: 2px solid #64C5CC;
+
+    &:hover {
+      background-color: #64C5CC;
+      color: #fff;
+    }
+  }
+}
+
+.rotate-section {
+  block-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .medal {
+    inline-size: 360px;
+    block-size: 360px;
+    perspective: 600px;
+
+    >div {
+      inline-size: inherit;
+      block-size: inherit;
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      backface-visibility: hidden;
+      transition: 1s;
+    }
+
+    .front {
+      transform: rotateY(0);
+    }
+
+    .back {
+      transform: rotateY(-180deg);
+
+      .btn {
+        position: absolute;
+        inset: auto 0 35px 25px;
+        margin: auto;
+        letter-spacing: 3px;
+      }
+    }
+
+    &:hover {
+      .front {
+        transform: rotateY(180deg);
+      }
+
+      .back {
+        transform: rotateY(0);
+      }
+    }
+
+    img {
+      inline-size: inherit;
+      block-size: inherit;
+      border-radius: 50%;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+  }
+}
